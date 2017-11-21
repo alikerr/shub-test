@@ -1,6 +1,5 @@
-BootStrap: debootstrap
-OSVersion: yakkety
-MirrorURL: http://muug.ca/mirror/ubuntu/
+BootStrap: docker
+From: ubuntu:16.10
 
 %help
    A container to have Ubuntu 16.10 (Yakkety Yak) build environment.
@@ -13,7 +12,6 @@ MirrorURL: http://muug.ca/mirror/ubuntu/
 
 %post
     echo "Hello from inside the container"
-    sed -i 's/$/ universe/' /etc/apt/sources.list
-    apt-get update
+    apt-get -y update
     apt-get -y --force-yes install vim mc build-essential cmake libboost-all-dev libhdf5-dev wget
 
